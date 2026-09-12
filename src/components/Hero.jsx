@@ -1,6 +1,7 @@
 import { FileDown, FolderOpen, Github, Linkedin, MapPin } from 'lucide-react'
 import { motion as Motion, useReducedMotion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import KineticConcepts from './KineticConcepts'
 import { KineticText, Parallax } from './motion/MotionPrimitives'
 import { links } from '../data/content'
 
@@ -11,7 +12,7 @@ export default function Hero({ dark, onToggleTheme }) {
       <div className="identity-row">
         <Parallax distance={9}><div className="monogram" aria-hidden="true">BR</div></Parallax>
         <div className="identity-copy">
-          <p className="availability"><span /> AI Systems · Agentic Engineering</p>
+          <p className="availability"><span className="availability-dot" /> <KineticConcepts /></p>
           <h1 id="hero-title"><KineticText>Bhavya Rustagi</KineticText></h1>
           <div className="hero-meta"><span>AI Engineer</span><i /><span><MapPin size={13} /> India</span></div>
         </div>
