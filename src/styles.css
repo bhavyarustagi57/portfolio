@@ -29,3 +29,52 @@ button,a { font:inherit; } button { color:inherit; } a { color:inherit; text-dec
 @media (max-width:860px){.page-shell{padding:34px 16px 100px}.content-panel{border-radius:22px}.desktop-nav{display:none}.mobile-nav{position:fixed;left:50%;bottom:max(12px,env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:7px;padding:8px;transform:translateX(-50%);border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(24,26,31,.82);box-shadow:0 18px 40px rgba(0,0,0,.24);backdrop-filter:blur(18px)}.mobile-nav .nav-icon{width:47px;height:43px;border-radius:12px;align-content:center;gap:1px}.mobile-nav small{font-size:8px;line-height:1}.mobile-menu{position:fixed;right:14px;bottom:82px;z-index:39;display:grid;width:min(250px,calc(100vw - 28px));padding:9px;border:1px solid var(--border-strong);border-radius:16px;background:var(--panel-strong);box-shadow:var(--shadow);backdrop-filter:blur(18px)}.mobile-menu button{padding:10px 12px;border:0;border-radius:9px;background:transparent;text-align:left;font-size:14px;cursor:pointer}.mobile-menu button:hover,.mobile-menu button.active{background:var(--accent-soft);color:var(--accent)}}
 @media (max-width:560px){.page-shell{padding:14px 10px 94px}.content-panel{padding:23px 18px 25px;border-radius:18px}.identity-row{gap:12px}.monogram{width:52px}.availability{display:none}h1{font-size:1.55rem}.hero-meta{font-size:12px;gap:6px}.icon-button{width:38px;height:38px}.hero-actions .button{flex:1 1 100%}.section{padding-top:45px;margin-top:45px}.section-heading{align-items:flex-start;margin-bottom:24px}.eyebrow{font-size:9px}.skill-group{grid-template-columns:1fr;gap:7px}.skill-label{padding:0}.achievement-grid{grid-template-columns:1fr}.mini-card{min-height:auto}.education-card{grid-template-columns:auto 1fr}.education-card .meta-pill{grid-column:2;width:fit-content}.contact-card{grid-template-columns:1fr}.contact-status{grid-column:1}.project-rail{grid-auto-columns:92%}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.cursor-layer{display:none!important}}
+
+/* Phase 2 content accommodations — extends the frozen Phase 1 system. */
+.button.icon-action{width:42px;padding:0;border:1px solid var(--border-strong);background:transparent}
+.button.icon-action:hover{border-color:var(--accent);background:var(--accent-soft)}
+.timeline{gap:48px}
+.role-line{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px;margin-top:5px;color:var(--muted);font-size:12px}
+.role-line strong{color:var(--text);font-size:13px;font-weight:500}
+.role-line span{display:inline-flex;align-items:center;gap:4px}
+.experience-points{display:grid;gap:7px;margin:16px 0 0;padding:0;list-style:none;color:var(--muted);font-size:13px;line-height:1.65}
+.experience-points li{position:relative;padding-left:14px}
+.experience-points li::before{content:'';position:absolute;left:0;top:.72em;width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.project-rail{grid-auto-columns:min(94%,520px)}
+.project-card{min-height:0}
+.project-visual{height:154px}
+.project-body{display:flex;flex-direction:column;padding:20px}
+.project-body h3{font-size:17px;overflow-wrap:anywhere}
+.project-body>p{margin:9px 0 0;color:var(--muted);font-size:13px;line-height:1.62}
+.project-body .project-detail{color:var(--faint);font-size:12px}
+.stack-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+.stack-list span{padding:4px 8px;border:1px solid var(--border);border-radius:99px;background:var(--accent-soft);color:var(--muted);font-size:10px;font-weight:500}
+.project-links{display:flex;gap:9px;margin-top:18px;padding-top:15px;border-top:1px solid var(--border)}
+.project-links a{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 11px;border:1px solid var(--border-strong);border-radius:9px;font-size:12px;font-weight:500;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.project-links a:hover{transform:translateY(-2px);border-color:var(--accent);background:var(--accent-soft)}
+.achievement-grid{grid-template-columns:repeat(2,1fr)}
+.education-location{color:var(--faint)!important;font-size:12px!important}
+.contact-card{display:block}
+.contact-intro{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+.contact-link{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:9px;min-width:0;padding:11px;border:1px solid var(--border);border-radius:10px;transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.contact-link:hover{transform:translateY(-2px);border-color:var(--accent);background:var(--accent-soft)}
+.contact-link>svg:first-child{color:var(--accent)}
+.contact-link span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:11px}
+.contact-link small{display:block;color:var(--faint);font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+
+@media (max-width:560px){
+  .identity-row{grid-template-columns:auto minmax(0,1fr) auto}
+  .hero-actions .button{flex:1 1 calc(50% - 5px)}
+  .hero-actions .button.icon-action{flex:0 0 42px}
+  .item-top{display:grid;gap:7px}
+  .item-top .meta-pill{width:fit-content}
+  .role-line{align-items:flex-start;flex-direction:column}
+  .experience-points{font-size:12px}
+  .project-rail{grid-auto-columns:96%}
+  .project-visual{height:132px}
+  .project-body{padding:17px}
+  .achievement-grid{grid-template-columns:1fr}
+  .education-card{align-items:start}
+  .contact-grid{grid-template-columns:1fr}
+}
