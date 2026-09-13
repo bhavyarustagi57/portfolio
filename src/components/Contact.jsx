@@ -15,7 +15,7 @@ export default function Contact() {
     <Reveal>
       <div className="contact-card surface">
         <div className="contact-intro"><div className="contact-icon"><Mail size={21} /></div><div><h3>Building something with AI?</h3><p>Reach out about AI systems, semantic search, agentic workflows, or full-stack engineering.</p></div></div>
-        <div className="contact-grid">{contacts.map(({ label, value, href, icon: Icon, external }) => <a key={label} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} className="contact-link"><Icon size={16} /><span><small>{label}</small>{value}</span><ArrowUpRight size={14} /></a>)}</div>
+        <div className="contact-grid">{contacts.map(({ label, value, href, icon: Icon, external }) => <a key={label} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className="contact-link"><Icon size={16} /><span><small>{label}</small>{value}</span><ArrowUpRight size={14} /></a>)}</div>
       </div>
     </Reveal>
   </Section>

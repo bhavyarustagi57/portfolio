@@ -27,11 +27,11 @@ export default function App() {
   }, [dark])
 
   return <>
-    <a className="skip-link" href="#home">Skip to content</a>
+    <a className="skip-link" href="#main-content">Skip to content</a>
     <Background />
     <CustomCursor />
     <Navbar />
-    <main className="page-shell"><div className="content-panel">
+    <main id="main-content" className="page-shell" tabIndex="-1"><div className="content-panel">
       <Hero dark={dark} onToggleTheme={() => setDark((value) => !value)} />
       <Experience />
       <Skills />

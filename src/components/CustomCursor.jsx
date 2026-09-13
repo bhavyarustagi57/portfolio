@@ -22,15 +22,23 @@ export default function CustomCursor() {
     const onOver = (event) => setCursorState(event.target)
     const onDown = (event) => setCursorState(event.target, true)
     const onUp = (event) => setCursorState(event.target)
+    const resetCursor = () => {
+      document.body.dataset.cursorState = 'default'
+      if (label.current) label.current.textContent = ''
+    }
     window.addEventListener('pointermove', onMove, { passive: true })
     document.addEventListener('pointerover', onOver)
     document.addEventListener('pointerdown', onDown)
     document.addEventListener('pointerup', onUp)
+    document.addEventListener('pointercancel', resetCursor)
+    window.addEventListener('blur', resetCursor)
     return () => {
       window.removeEventListener('pointermove', onMove)
       document.removeEventListener('pointerover', onOver)
       document.removeEventListener('pointerdown', onDown)
       document.removeEventListener('pointerup', onUp)
+      document.removeEventListener('pointercancel', resetCursor)
+      window.removeEventListener('blur', resetCursor)
       delete document.body.dataset.cursorState
     }
   }, [])

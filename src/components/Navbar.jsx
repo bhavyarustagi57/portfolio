@@ -46,8 +46,8 @@ export default function Navbar() {
     </nav>
     <nav className="mobile-nav" aria-label="Mobile navigation">
       {navigation.filter(({ id }) => ['home', 'projects', 'contact'].includes(id)).map((item) => <NavButton key={item.id} {...item} compact />)}
-      <button className={open ? 'nav-icon active' : 'nav-icon'} onClick={() => setOpen(!open)} aria-label={`${open ? 'Close' : 'Open'} navigation menu`} aria-expanded={open}>{open ? <X size={18} /> : <Menu size={18} />}<small>Menu</small></button>
+      <button className={open ? 'nav-icon active' : 'nav-icon'} onClick={() => setOpen(!open)} aria-label={`${open ? 'Close' : 'Open'} navigation menu`} aria-expanded={open} aria-controls="mobile-navigation-menu">{open ? <X size={18} /> : <Menu size={18} />}<small>Menu</small></button>
     </nav>
-    {open && <div className="mobile-menu">{navigation.map(({ id, label }) => <button key={id} onClick={() => visit(id)} className={active === id ? 'active' : ''}>{label}</button>)}</div>}
+    {open && <div id="mobile-navigation-menu" className="mobile-menu" aria-label="Mobile navigation menu">{navigation.map(({ id, label }) => <button key={id} onClick={() => visit(id)} className={active === id ? 'active' : ''}>{label}</button>)}</div>}
   </>
 }

@@ -74,6 +74,17 @@ export default function Projects() {
     setActive(index)
   }
 
+  const onKeyDown = (event) => {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      goTo(Math.min(active + 1, projects.length - 1))
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      goTo(Math.max(active - 1, 0))
+    }
+  }
+
   return <Section id="projects" eyebrow="03 / Selected" title="Projects" className="projects-section">
     <div className="project-toolbar">
       <p>Two production-minded systems, mapped from input to verified outcome.</p>
@@ -94,6 +105,7 @@ export default function Projects() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.12 }}
       onScroll={onScroll}
+      onKeyDown={onKeyDown}
     >
       {projects.map((project) => <Motion.article className={`project-card surface ${project.tone}${project.featured ? ' featured' : ''}`} key={project.title} variants={reduced ? undefined : staggerItem} data-cursor="project">
         <Parallax className="project-visual" distance={project.featured ? 12 : 8}>
@@ -121,8 +133,8 @@ export default function Projects() {
             </div>
           </div>
           <div className="project-links">
-            {project.github && <a href={project.github} target="_blank" rel="noreferrer"><Github size={15} /> GitHub</a>}
-            <a href={project.live} target="_blank" rel="noreferrer"><ExternalLink size={15} /> Live App</a>
+            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer"><Github size={15} /> GitHub</a>}
+            <a href={project.live} target="_blank" rel="noopener noreferrer"><ExternalLink size={15} /> Live App</a>
           </div>
         </div>
       </Motion.article>)}

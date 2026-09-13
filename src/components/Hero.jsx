@@ -20,9 +20,9 @@ export default function Hero({ dark, onToggleTheme }) {
       </div>
       <div className="hero-actions">
         <a href="#projects" className="button primary">View projects <FolderOpen size={15} /></a>
-        <a href={links.resume} className="button secondary" download>Resume <FileDown size={15} /></a>
-        <a href={links.github} className="button icon-action" target="_blank" rel="noreferrer" aria-label="GitHub profile"><Github size={17} /></a>
-        <a href={links.linkedin} className="button icon-action" target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><Linkedin size={17} /></a>
+        <a href={links.resume} className="button secondary" download="Bhavya-Rustagi-Resume.pdf">Resume <FileDown size={15} /></a>
+        <a href={links.github} className="button icon-action" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><Github size={17} /></a>
+        <a href={links.linkedin} className="button icon-action" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><Linkedin size={17} /></a>
       </div>
     </Motion.div>
     <Motion.p className="intro" initial={reduced ? false : { opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.35 }}>I build production-oriented AI systems: agentic workflows, semantic retrieval, and full-stack products designed for reliable, grounded results.</Motion.p>
