@@ -189,6 +189,11 @@ button,a { font:inherit; } button { color:inherit; } a { color:inherit; text-dec
   --radius-lg:22px;
   --muted:#656972;
   --faint:#898e98;
+  --motion-fast:160ms;
+  --motion-hover:220ms;
+  --motion-theme:260ms;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-standard:cubic-bezier(.2,.8,.2,1);
 }
 .dark{
   --muted:#adb1bb;
@@ -339,4 +344,62 @@ footer{margin-top:52px;padding-top:22px;font-size:11px}
   h1{font-size:1.38rem}
   .hero-actions .button{min-width:0}
   .project-toolbar>p{max-width:172px}
+}
+
+/* V2 Prompt 2 — motion and interaction polish. */
+body{transition:color var(--motion-theme) var(--ease-standard),background-color var(--motion-theme) var(--ease-standard)}
+.content-panel,.surface,.mobile-menu{transition-property:color,background-color,border-color,box-shadow;transition-duration:var(--motion-theme);transition-timing-function:var(--ease-standard)}
+.icon-button{transition:transform var(--motion-hover) var(--ease-out),border-color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard)}
+.button{transition:transform var(--motion-hover) var(--ease-out),box-shadow var(--motion-hover) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard),border-color var(--motion-fast) var(--ease-standard)}
+.hero-actions .button svg{transition:transform var(--motion-hover) var(--ease-out)}
+.hero-actions .button:hover svg{transform:translateX(1px)}
+.hero-actions .icon-action:hover svg{transform:scale(1.04)}
+.hover-lift{transition:transform var(--motion-hover) var(--ease-out),border-color var(--motion-fast) var(--ease-standard),box-shadow var(--motion-hover) var(--ease-standard),background-color var(--motion-theme) var(--ease-standard)}
+.project-card{transition:transform var(--motion-hover) var(--ease-out),border-color var(--motion-fast) var(--ease-standard),box-shadow var(--motion-hover) var(--ease-standard),background-color var(--motion-theme) var(--ease-standard)}
+.project-visual-copy,.project-system-map{transition:transform 320ms var(--ease-out)}
+.project-controls button,.stack-list span,.project-links a{transition:transform var(--motion-hover) var(--ease-out),border-color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard),opacity var(--motion-fast) var(--ease-standard)}
+.project-controls button:active:not(:disabled),.project-links a:active{transform:translateY(0) scale(.97)}
+.project-controls button:disabled{transition:opacity var(--motion-fast) var(--ease-standard)}
+.project-links a svg{transition:transform var(--motion-hover) var(--ease-out)}
+.project-progress button{transition:width var(--motion-hover) var(--ease-out),background-color var(--motion-fast) var(--ease-standard)}
+.contact-link{transition:transform var(--motion-hover) var(--ease-out),border-color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard)}
+.contact-link>svg:last-child{transition:transform var(--motion-hover) var(--ease-out)}
+.contact-link:hover>svg:last-child{transform:translate(1px,-1px)}
+.nav-icon{transition:transform var(--motion-hover) var(--ease-out),color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard)}
+.nav-icon>span{transition:opacity var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-out)}
+.desktop-nav,.mobile-nav{animation:navigation-enter .42s var(--ease-out) .08s both}
+.cursor-layer{opacity:0;transition:opacity 100ms ease}
+body[data-cursor-visible="true"] .cursor-layer{opacity:1}
+.cursor-ring{will-change:transform;transition:width var(--motion-fast) var(--ease-out),height var(--motion-fast) var(--ease-out),margin var(--motion-fast) var(--ease-out),background-color var(--motion-fast) var(--ease-standard),box-shadow var(--motion-fast) var(--ease-standard)}
+.cursor-dot{will-change:transform}
+.cursor-label{transition:opacity 120ms var(--ease-standard)}
+
+@keyframes navigation-enter{
+  from{opacity:0;transform:translateY(calc(-50% + 8px))}
+  to{opacity:1;transform:translateY(-50%)}
+}
+
+@media (max-width:860px){
+  .mobile-nav{animation-name:mobile-navigation-enter}
+}
+
+@keyframes mobile-navigation-enter{
+  from{opacity:0;transform:translate(-50%,8px)}
+  to{opacity:1;transform:translate(-50%,0)}
+}
+
+@media (max-width:560px){
+  .project-card:hover{transform:translateY(-2px)}
+  .project-card:hover .project-visual-copy{transform:translateY(-2px)}
+  .project-card:hover .project-system-map{transform:translateY(-50%) translateX(2px) scale(.94)}
+}
+
+@media (max-width:360px){
+  h1{font-size:1.22rem}
+  .hero-actions .button:not(.icon-action){flex-basis:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .desktop-nav,.mobile-nav{animation:none}
+  .cursor-ring,.cursor-dot{will-change:auto}
 }

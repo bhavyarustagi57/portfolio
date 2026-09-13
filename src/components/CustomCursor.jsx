@@ -7,9 +7,23 @@ export default function CustomCursor() {
 
   useEffect(() => {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    const position = { x: -100, y: -100, ringX: -100, ringY: -100 }
+    let frame = null
+
+    const renderRing = () => {
+      position.ringX += (position.x - position.ringX) * 0.3
+      position.ringY += (position.y - position.ringY) * 0.3
+      ring.current?.style.setProperty('transform', `translate3d(${position.ringX}px, ${position.ringY}px, 0)`)
+      const settled = Math.abs(position.x - position.ringX) < 0.1 && Math.abs(position.y - position.ringY) < 0.1
+      frame = settled ? null : window.requestAnimationFrame(renderRing)
+    }
+
     const onMove = (event) => {
+      position.x = event.clientX
+      position.y = event.clientY
       dot.current?.style.setProperty('transform', `translate3d(${event.clientX}px, ${event.clientY}px, 0)`)
-      ring.current?.animate({ transform: `translate3d(${event.clientX}px, ${event.clientY}px, 0)` }, { duration: 180, fill: 'forwards' })
+      document.body.dataset.cursorVisible = 'true'
+      if (frame === null) frame = window.requestAnimationFrame(renderRing)
     }
     const setCursorState = (target, pressed = false) => {
       const interactive = target?.closest('a, button, [data-cursor]')
@@ -26,20 +40,28 @@ export default function CustomCursor() {
       document.body.dataset.cursorState = 'default'
       if (label.current) label.current.textContent = ''
     }
+    const hideCursor = () => {
+      resetCursor()
+      document.body.dataset.cursorVisible = 'false'
+    }
     window.addEventListener('pointermove', onMove, { passive: true })
     document.addEventListener('pointerover', onOver)
     document.addEventListener('pointerdown', onDown)
     document.addEventListener('pointerup', onUp)
     document.addEventListener('pointercancel', resetCursor)
-    window.addEventListener('blur', resetCursor)
+    document.documentElement.addEventListener('pointerleave', hideCursor)
+    window.addEventListener('blur', hideCursor)
     return () => {
       window.removeEventListener('pointermove', onMove)
       document.removeEventListener('pointerover', onOver)
       document.removeEventListener('pointerdown', onDown)
       document.removeEventListener('pointerup', onUp)
       document.removeEventListener('pointercancel', resetCursor)
-      window.removeEventListener('blur', resetCursor)
+      document.documentElement.removeEventListener('pointerleave', hideCursor)
+      window.removeEventListener('blur', hideCursor)
+      if (frame !== null) window.cancelAnimationFrame(frame)
       delete document.body.dataset.cursorState
+      delete document.body.dataset.cursorVisible
     }
   }, [])
 

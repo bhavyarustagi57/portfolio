@@ -108,7 +108,7 @@ export default function Projects() {
       onKeyDown={onKeyDown}
     >
       {projects.map((project) => <Motion.article className={`project-card surface ${project.tone}${project.featured ? ' featured' : ''}`} key={project.title} variants={reduced ? undefined : staggerItem} data-cursor="project">
-        <Parallax className="project-visual" distance={project.featured ? 12 : 8}>
+        <Parallax className="project-visual" distance={project.featured ? 8 : 6}>
           <div className="project-visual-copy" aria-hidden="true">
             <span>{project.number}</span>
             <small>{project.label}</small>
