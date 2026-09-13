@@ -18,6 +18,7 @@ const projects = [
       'Human approval before every pull request',
     ],
     stack: ['Next.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Dramatiq', 'SSE', 'Docker', 'OpenAI'],
+    github: 'https://github.com/bhavyarustagi57/issue-to-pr-live-test',
     live: 'https://github-issue-to-pr-agent-web.vercel.app/',
     tone: 'violet',
     featured: true,
