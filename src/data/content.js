@@ -9,10 +9,14 @@ export const navigation = [
 ]
 
 export const skillGroups = [
-  { label: 'Languages', values: ['C++', 'Python', 'JavaScript', 'TypeScript', 'SQL'] },
-  { label: 'Frameworks', values: ['React', 'Next.js', 'Node.js', 'Express', 'Fastify', 'Tailwind CSS'] },
-  { label: 'Databases', values: ['PostgreSQL', 'MongoDB', 'Redis', 'Pinecone'] },
-  { label: 'Infrastructure', values: ['Docker', 'Git', 'GitHub', 'BullMQ', 'AWS (EC2, S3)', 'GitHub Actions'] },
+  { label: 'Languages', values: ['Python', 'TypeScript', 'SQL'] },
+  { label: 'AI / LLM', values: ['RAG', 'LLM Agents', 'Embeddings', 'Semantic Search', 'MCP', 'Tool Calling', 'Prompt Engineering'] },
+  { label: 'Agent Engineering', values: ['Agent Orchestration', 'Human-in-the-Loop', 'Guardrails', 'Structured Outputs'] },
+  { label: 'Frameworks', values: ['FastAPI', 'React', 'Next.js', 'Node.js'] },
+  { label: 'Databases', values: ['PostgreSQL', 'MongoDB Atlas', 'Redis', 'MongoDB Atlas Vector Search'] },
+  { label: 'Evaluation / Observability', values: ['LLM-as-a-Judge', 'Rubric Evaluation', 'Statistical Calibration', 'Regression Detection'] },
+  { label: 'Backend Engineering', values: ['REST APIs', 'Async Processing', 'Background Jobs', 'SSE', 'Idempotency', 'Retry / Backoff'] },
+  { label: 'Tools', values: ['Docker', 'Git', 'GitHub', 'GitHub App/API', 'Dramatiq', 'Pytest', 'OpenAI API'] },
 ]
 
 export const links = {
