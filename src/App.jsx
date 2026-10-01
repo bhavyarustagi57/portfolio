@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Achievements from './components/Achievements'
 import Background from './components/Background'
 import Contact from './components/Contact'
 import CustomCursor from './components/CustomCursor'
@@ -36,7 +35,6 @@ export default function App() {
       <Experience />
       <Skills />
       <Projects />
-      <Achievements />
       <Education />
       <Contact />
       <Footer />

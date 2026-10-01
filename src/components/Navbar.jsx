@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Award, BriefcaseBusiness, Folder, GraduationCap, House, Menu, MessageCircle, Sparkles, X } from 'lucide-react'
+import { BriefcaseBusiness, Folder, GraduationCap, House, Menu, MessageCircle, Sparkles, X } from 'lucide-react'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'framer-motion'
 import { navigation } from '../data/content'
 import { motionEase } from './motion/MotionPrimitives'
@@ -9,7 +9,6 @@ const icons = {
   experience: BriefcaseBusiness,
   skills: Sparkles,
   projects: Folder,
-  achievements: Award,
   education: GraduationCap,
   contact: MessageCircle,
 }

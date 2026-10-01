@@ -11,7 +11,7 @@ const contacts = [
 ]
 
 export default function Contact() {
-  return <Section id="contact" eyebrow="06 / Connect" title="Let’s talk">
+  return <Section id="contact" eyebrow="05 / Connect" title="Let’s talk">
     <Reveal>
       <div className="contact-card surface">
         <div className="contact-intro"><div className="contact-icon"><Mail size={21} /></div><div><h3>Building something with AI?</h3><p>Reach out about AI systems, semantic search, agentic workflows, or full-stack engineering.</p></div></div>
